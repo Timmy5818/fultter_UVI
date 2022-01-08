@@ -12,10 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '天氣預報',
       home: Scaffold(
         appBar: AppBar(),
-        body: AQIList(),
+        body: const AQIList(),
       ),
     );
   }
@@ -57,7 +57,7 @@ class _AQIListState extends State<AQIList> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         },
