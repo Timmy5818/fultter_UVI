@@ -10,15 +10,15 @@ class Station {
   Station({required this.siteName});
 
   Station.fromJson(Map<String, dynamic> json) {
-    siteName = json['locationName'];
-    aqi = int.tryParse(json['parameterName']) ?? -1;
+    siteName = json['SiteName'];
+    aqi = int.tryParse(json['UVI']) ?? 0;
   }
 }
 
 Future<List<Station>> fetchAQI() async {
   List<Station> stations = [];
   final response = await http.get(Uri.parse(
-      'https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=rdec-key-123-45678-011121314&format=JSON'));
+      'https://data.epa.gov.tw/api/v1/uv_s_01?format=json&limit=5&api_key=1909f878-5d76-4093-9da5-1372086fa7f6'));
 
   debugPrint('response gotten');
   if (response.statusCode == 200) {
