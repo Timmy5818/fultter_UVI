@@ -12,28 +12,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '天氣預報',
+      title: '即時紫外線指數',
       home: Scaffold(
         appBar: AppBar(),
-        body: const AQIList(),
+        body: const UVIList(),
       ),
     );
   }
 }
 
-class AQIList extends StatefulWidget {
-  const AQIList({Key? key}) : super(key: key);
+class UVIList extends StatefulWidget {
+  const UVIList({Key? key}) : super(key: key);
   @override
-  _AQIListState createState() => _AQIListState();
+  _UVIListState createState() => _UVIListState();
 }
 
-class _AQIListState extends State<AQIList> {
+class _UVIListState extends State<UVIList> {
   Future<List<Station>>? futureStationList;
 
   @override
   void initState() {
     super.initState();
-    futureStationList = fetchAQI();
+    futureStationList = fetchUVI();
   }
 
   @override
@@ -50,7 +50,7 @@ class _AQIListState extends State<AQIList> {
                 print('build ${index}');
                 return ListTile(
                   title: Text(snapshot.data![index].siteName),
-                  subtitle: Text(snapshot.data![index].aqi.toString()),
+                  subtitle: Text(snapshot.data![index].UVI.toString()),
                 );
               },
             );
