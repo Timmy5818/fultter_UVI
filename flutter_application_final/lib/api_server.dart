@@ -18,7 +18,7 @@ class Station {
 Future<List<Station>> fetchUVI() async {
   List<Station> stations = [];
   final response = await http.get(Uri.parse(
-      'https://data.epa.gov.tw/api/v1/uv_s_01?format=json&limit=5&api_key=1909f878-5d76-4093-9da5-1372086fa7f6'));
+      'https://data.epa.gov.tw/api/v1/uv_s_01?api_key=1909f878-5d76-4093-9da5-1372086fa7f6'));
 
   debugPrint('response gotten');
   if (response.statusCode == 200) {
